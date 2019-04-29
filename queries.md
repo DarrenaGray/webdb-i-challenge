@@ -42,4 +42,4 @@
 
 ## delete all users that have no orders. Should delete 17 (or 18 if you haven't deleted the record added) records.
 
-```DELETE FROM customers WHERE EXISTS (SELECT customerid FROM orders WHERE orders.customerid = customers.customerid)```
+```DELETE FROM customers WHERE NOT EXISTS (SELECT customerid FROM orders WHERE orders.customerid = customers.customerid)```
